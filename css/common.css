@@ -1,4 +1,76 @@
-html body {
+@charset "UTF-8";
+@font-face {
+  font-family: 'fontello';
+  src: url("../font/fontello.eot?21741736");
+  src: url("../font/fontello.eot?21741736#iefix") format("embedded-opentype"), url("../font/fontello.woff2?21741736") format("woff2"), url("../font/fontello.woff?21741736") format("woff"), url("../font/fontello.ttf?21741736") format("truetype"), url("../font/fontello.svg?21741736#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-th-list:before {
+  content: '\e800'; }
+
+.icon-search:before {
+  content: '\e801'; }
+
+html {
+  font-size: 62.5%;
+  /* 10梅16=62.5% */ }
+
+body {
   margin: 0 auto; }
+
+.index-nav {
+  position: fixed;
+  top: 7vh;
+  width: 100%;
+  padding-top: 10%; }
+  .index-nav .nav-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16%;
+    height: 100%;
+    border-top-right-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    color: white;
+    font-size: 7rem;
+    background-color: black; }
+    .index-nav .nav-menu:hover {
+      color: #7fbaf5; }
+  .index-nav .nav-search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16%;
+    height: 100%;
+    border-top-left-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+    color: white;
+    font-size: 7rem;
+    background-color: black; }
+    .index-nav .nav-search:hover {
+      color: #7fbaf5; }
+  .index-nav [class^="icon-"] {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -3.5rem;
+    margin-left: -3.5rem; }
 
 /*# sourceMappingURL=common.css.map */
