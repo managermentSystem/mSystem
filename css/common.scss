@@ -18,12 +18,12 @@
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
+  //margin-right: .2em;
   text-align: center;
   font-variant: normal;
   text-transform: none;
   line-height: 1em;
-  margin-left: .2em;
+  //margin-left: .2em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -36,6 +36,22 @@
   content: '\e801';
 }
 
+html, body, div, span, h1, h2, h3, h4, h5, h6, p,
+blockquote, a, acronym, address, big, cite, code,
+img, ul, li, tbody, tfoot, thead, tr, th, td, article,
+aside, footer, header, nav, section, audio, video {
+  margin: 0;
+  padding: 0;
+  //border: 0;
+  //font-size: 100%;
+  //font: inherit;
+  //vertical-align: baseline;
+}
+
+ol, ul {
+  list-style: none;
+}
+
 html {
   font-size: 62.5%; /* 10÷16=62.5% */
 }
@@ -44,8 +60,16 @@ body {
   margin: 0 auto;
 }
 
+:before {
+  margin: 0;
+  padding: 0;
+}
+
 $debug: 1px solid;
 $maxWidth: 768px 992px 1200px;
+@function toRem($px) {
+  @return $px / 10 * 1rem;
+}
 
 .index-nav {
   position: fixed;
@@ -58,10 +82,10 @@ $maxWidth: 768px 992px 1200px;
     #{$position}: 0;
     width: 16%;
     height: 100%;
-    border-top-#{$radiusDir}-radius: 5rem;
-    border-bottom-#{$radiusDir}-radius: 5rem;
+    border-top-#{$radiusDir}-radius: toRem(50);
+    border-bottom-#{$radiusDir}-radius: toRem(50);
     color: white;
-    font-size: 7rem;
+    font-size: toRem(70);
     background-color: black;
 
     &:hover {
@@ -78,7 +102,29 @@ $maxWidth: 768px 992px 1200px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -3.5rem;
-    margin-left: -3.5rem;
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+    line-height: 1em;
   }
 }
+
+/*
+
+
+!* HTML5 display-role reset for older browsers *!
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}*/

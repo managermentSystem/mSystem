@@ -1,46 +1,70 @@
 @charset "UTF-8";
 @font-face {
-  font-family: 'fontello';
-  src: url("../font/fontello.eot?21741736");
-  src: url("../font/fontello.eot?21741736#iefix") format("embedded-opentype"), url("../font/fontello.woff2?21741736") format("woff2"), url("../font/fontello.woff?21741736") format("woff"), url("../font/fontello.ttf?21741736") format("truetype"), url("../font/fontello.svg?21741736#fontello") format("svg");
-  font-weight: normal;
-  font-style: normal; }
+    font-family: 'fontello';
+    src: url("../font/fontello.eot?21741736");
+    src: url("../font/fontello.eot?21741736#iefix") format("embedded-opentype"), url("../font/fontello.woff2?21741736") format("woff2"), url("../font/fontello.woff?21741736") format("woff"), url("../font/fontello.ttf?21741736") format("truetype"), url("../font/fontello.svg?21741736#fontello") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
 [class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1em;
-  margin-left: .2em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 .icon-th-list:before {
-  content: '\e800'; }
+    content: '\e800';
+}
 
 .icon-search:before {
-  content: '\e801'; }
+    content: '\e801';
+}
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p,
+blockquote, a, acronym, address, big, cite, code,
+img, ul, li, tbody, tfoot, thead, tr, th, td, article,
+aside, footer, header, nav, section, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
 
 html {
-  font-size: 62.5%;
-  /* 10梅16=62.5% */ }
+    font-size: 62.5%;
+    /* 10梅16=62.5% */
+}
 
 body {
-  margin: 0 auto; }
+    margin: 0 auto;
+}
+
+:before {
+    margin: 0;
+    padding: 0;
+}
 
 .index-nav {
-  position: fixed;
-  top: 7vh;
-  width: 100%;
-  padding-top: 10%; }
-  .index-nav .nav-menu {
+    position: fixed;
+    top: 7vh;
+    width: 100%;
+    padding-top: 10%;
+}
+
+.index-nav .nav-menu {
     position: absolute;
     top: 0;
     left: 0;
@@ -50,10 +74,14 @@ body {
     border-bottom-right-radius: 5rem;
     color: white;
     font-size: 7rem;
-    background-color: black; }
-    .index-nav .nav-menu:hover {
-      color: #7fbaf5; }
-  .index-nav .nav-search {
+    background-color: black;
+}
+
+.index-nav .nav-menu:hover {
+    color: #7fbaf5;
+}
+
+.index-nav .nav-search {
     position: absolute;
     top: 0;
     right: 0;
@@ -63,14 +91,41 @@ body {
     border-bottom-left-radius: 5rem;
     color: white;
     font-size: 7rem;
-    background-color: black; }
-    .index-nav .nav-search:hover {
-      color: #7fbaf5; }
-  .index-nav [class^="icon-"] {
+    background-color: black;
+}
+
+.index-nav .nav-search:hover {
+    color: #7fbaf5;
+}
+
+.index-nav [class^="icon-"] {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -3.5rem;
-    margin-left: -3.5rem; }
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+    line-height: 1em;
+}
+
+/*
+
+
+!* HTML5 display-role reset for older browsers *!
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}*/
 
 /*# sourceMappingURL=common.css.map */
