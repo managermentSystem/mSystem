@@ -13,12 +13,10 @@
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
   text-align: center;
   font-variant: normal;
   text-transform: none;
   line-height: 1em;
-  margin-left: .2em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -28,6 +26,16 @@
 .icon-search:before {
   content: '\e801'; }
 
+html, body, div, span, h1, h2, h3, h4, h5, h6, p,
+blockquote, a, acronym, address, big, cite, code,
+img, ul, li, tbody, tfoot, thead, tr, th, td, article,
+aside, footer, header, nav, section, audio, video {
+  margin: 0;
+  padding: 0; }
+
+ol, ul {
+  list-style: none; }
+
 html {
   font-size: 62.5%;
   /* 10梅16=62.5% */ }
@@ -35,11 +43,23 @@ html {
 body {
   margin: 0 auto; }
 
+.demo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1; }
+
+:before {
+  margin: 0;
+  padding: 0; }
+
 .index-nav {
   position: fixed;
   top: 7vh;
   width: 100%;
-  padding-top: 10%; }
+  padding-top: 10%;
+  overflow: hidden; }
   .index-nav .nav-menu {
     position: absolute;
     top: 0;
@@ -50,9 +70,12 @@ body {
     border-bottom-right-radius: 5rem;
     color: white;
     font-size: 7rem;
-    background-color: black; }
-    .index-nav .nav-menu:hover {
-      color: #7fbaf5; }
+    background-color: black;
+    -webkit-transition: all 1.2s ease;
+    -moz-transition: all 1.2s ease;
+    -ms-transition: all 1.2s ease;
+    -o-transition: all 1.2s ease;
+    transition: all 1.2s ease; }
   .index-nav .nav-search {
     position: absolute;
     top: 0;
@@ -63,14 +86,22 @@ body {
     border-bottom-left-radius: 5rem;
     color: white;
     font-size: 7rem;
-    background-color: black; }
-    .index-nav .nav-search:hover {
-      color: #7fbaf5; }
+    background-color: black;
+    -webkit-transition: all 1.2s ease;
+    -moz-transition: all 1.2s ease;
+    -ms-transition: all 1.2s ease;
+    -o-transition: all 1.2s ease;
+    transition: all 1.2s ease; }
+  .index-nav .nav-menu.nav-hide {
+    left: -16%; }
+  .index-nav .nav-search.nav-hide {
+    right: -16%; }
   .index-nav [class^="icon-"] {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -3.5rem;
-    margin-left: -3.5rem; }
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+    line-height: 1em; }
 
 /*# sourceMappingURL=common.css.map */
