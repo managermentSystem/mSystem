@@ -2,14 +2,33 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="css/common.css">
     <title>nav</title>
 </head>
 <body>
-<nav class="index-nav">
-    <div class="nav-menu"><span class="icon-th-list"></span></div>
-    <div class="nav-search"><span class="icon-search"></span></div>
+<nav class="nav-container">
+    <ul class="nav-btn">
+        <li class="nav-menu" id="navMenu"><span class="icon-th-list"></span></li>
+        <li class="nav-search" id="navSearch"><span class="icon-search"></span></li>
+    </ul>
+    <div class="nav-bg"></div>
+    <div class="nav-side-box">
+        <div>
+            <h2>我的名字</h2>
+            <span class="icon-th-list" id="menuBack"></span>
+        </div>
+        <hr>
+        <ul>
+            <li><span class="icon-th-list"></span>首页</li>
+            <li><span class="icon-th-list"></span>收藏</li>
+            <li><span class="icon-th-list"></span>建议反馈</li>
+        </ul>
+    </div>
 </nav>
-
+<img class="demo" src="img/demo.jpg">
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
 </body>
 </html>

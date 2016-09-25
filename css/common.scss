@@ -1,3 +1,32 @@
+@charset "utf-8";
+$debug: 1px solid;
+$maxWidth: 768px 992px 1200px;
+$mainColor: #1d1d1d;
+
+@function toRem($px) {
+  @return $px / 10 * 1rem;
+}
+
+@mixin transition($param...) {
+  -webkit-transition: $param;
+  -moz-transition: $param;
+  -ms-transition: $param;
+  -o-transition: $param;
+  transition: $param;
+}
+
+@mixin boxShadow($param...) {
+  -webkit-box-shadow: $param;
+  -moz-box-shadow: $param;
+  box-shadow: $param;
+}
+
+@mixin boxSizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: 'fontello';
   src: url('../font/fontello.eot?21741736');
@@ -42,10 +71,7 @@ img, ul, li, tbody, tfoot, thead, tr, th, td, article,
 aside, footer, header, nav, section, audio, video {
   margin: 0;
   padding: 0;
-  //border: 0;
-  //font-size: 100%;
-  //font: inherit;
-  //vertical-align: baseline;
+  @include boxSizing;
 }
 
 ol, ul {
@@ -56,8 +82,21 @@ html {
   font-size: 62.5%; /* 10÷16=62.5% */
 }
 
+@media (max-width: 320px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 415px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 body {
   margin: 0 auto;
+  font-family: "Microsoft YaHei UI", "宋体";
 }
 
 .demo {
@@ -65,7 +104,6 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  //height: 2000px;
   z-index: -1;
 }
 
@@ -74,15 +112,14 @@ body {
   padding: 0;
 }
 
-$debug: 1px solid;
-$maxWidth: 768px 992px 1200px;
-@function toRem($px) {
-  @return $px / 10 * 1rem;
+.nav-container {
+  width: 100%;
+  overflow: hidden;
 }
 
-.index-nav {
+.nav-btn {
   position: fixed;
-  top: 7vh;
+  top: 5vh;
   width: 100%;
   padding-top: 10%;
   overflow: hidden;
@@ -95,16 +132,11 @@ $maxWidth: 768px 992px 1200px;
     border-top-#{$radiusDir}-radius: toRem(50);
     border-bottom-#{$radiusDir}-radius: toRem(50);
     color: white;
-    font-size: toRem(70);
-    background-color: black;
+    font-size: toRem(30);
+    background-color: $mainColor;
+    opacity: 1;
 
-    -webkit-transition: all 1.2s ease;
-       -moz-transition: all 1.2s ease;
-        -ms-transition: all 1.2s ease;
-         -o-transition: all 1.2s ease;
-            transition: all 1.2s ease;
-
-
+    @include transition($position 1.2s ease, opacity 1.0s linear 0.2s);
   }
   .nav-menu {
     @include navButton(left, right);
@@ -114,9 +146,11 @@ $maxWidth: 768px 992px 1200px;
   }
   .nav-menu.nav-hide {
     left: -16%;
+    opacity: 0;
   }
   .nav-search.nav-hide {
     right: -16%;
+    opacity: 0;
   }
   [class^="icon-"] {
     position: absolute;
@@ -125,5 +159,79 @@ $maxWidth: 768px 992px 1200px;
     margin-top: -0.5em;
     margin-left: -0.5em;
     line-height: 1em;
+  }
+}
+
+.nav-bg {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+
+  @include transition(all .3s linear);
+}
+
+.nav-bg.nav-show {
+  z-index: 1;
+  opacity: 1;
+}
+
+.nav-side-box {
+  position: fixed;
+  left: -65%;
+  z-index: 2;
+  width: 60%;
+  height: 100%;
+
+  @include boxShadow(6px 0 20px rgba(0, 0, 0, 0.5));
+
+  color: white;
+  background-color: $mainColor;
+
+  > div {
+    position: relative;
+    height: 10%;
+    color: #fff;
+
+    %a {
+      position: absolute;
+      bottom: 5%;
+      font-size: toRem(20);
+    }
+    h2 {
+      @extend %a;
+      left: 5%;
+      padding-left: 5%;
+    }
+    span {
+      @extend %a;
+      right: 5%;
+      font-size: toRem(22);
+      @include boxSizing;
+    }
+  }
+
+  hr {
+    margin-top: 1%;
+    margin-bottom: 4%;
+    border-color: black;
+    @include boxShadow(1px 1px 1px rgba(255, 255, 255, 0.3));
+  }
+
+  > ul {
+    width: 100%;
+
+    > li {
+      width: 100%;
+      padding-left: 10%;
+      line-height: 2.3em;
+      font-size: toRem(18);
+
+      span {
+        margin-right: 4%;
+      }
+    }
   }
 }
