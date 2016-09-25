@@ -1,0 +1,77 @@
+.index-background {
+
+}
+.index-background .ys {
+
+}
+.index-main {
+	width: 100%;
+}
+.index-main ul {
+	list-style: none;
+	margin-top: 10%;
+	width: 100%;
+}
+.index-main li {
+	position: relative;
+	width: 100%;
+	padding-top: 20%;
+	margin: 0;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+}
+.index-main .index-article {
+	position: absolute;
+	top: 0;
+	left: 2%;
+	height: 100%;
+	width: 96%;
+}
+.article-inner {
+	position: absolute;
+	width: 100%;
+	height: 25%;
+	top: 0;
+	left: 0;
+	margin-top: ;
+	font-size: 1rem;
+	border-bottom: 1px solid;
+}
+.article-content {
+	position: absolute;
+	height: 75%;
+	width: 100%;
+	bottom: 0;
+	border-color: red;
+}
+.article-content img {
+	position: absolute;
+	top: 0;
+	width: 15.625%;
+	height: 100%;
+	border-right: 1px solid;
+	border-color: green;
+}
+.article-main {
+	position: absolute;
+	right: 0;
+	width: 84.375%;
+	height: 100%;
+}
+.article-title {
+	height: 66.66%;
+	width: 100%;
+	letter-spacing: .2rem;
+	font-size: 2rem;
+	border: 1px solid;
+	border-color: green;
+}
+.article-scan {
+	position: absolute;
+	display: block;
+	bottom: 0;
+	height: 31.8%;
+	width: 100%;
+	border: 1px solid;
+	border-color: red;
+}
