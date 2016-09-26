@@ -15,10 +15,9 @@
 .index-main li {
 	position: relative;
 	width: 100%;
-	padding-top: 20%;
+	padding-top: 30%;
 	margin: 0;
 	border-top: 1px solid;
-	border-bottom: 1px solid;
 }
 .index-main .index-article {
 	position: absolute;
@@ -30,16 +29,14 @@
 .article-inner {
 	position: absolute;
 	width: 100%;
-	height: 25%;
-	top: 0;
+	/*height: 30%;*/
+	top: 12%;
 	left: 0;
-	margin-top: ;
-	font-size: 1rem;
 	border-bottom: 1px solid;
 }
 .article-content {
 	position: absolute;
-	height: 75%;
+	height: 70%;
 	width: 100%;
 	bottom: 0;
 	border-color: red;
@@ -47,15 +44,15 @@
 .article-content img {
 	position: absolute;
 	top: 0;
-	width: 15.625%;
-	height: 100%;
-	border-right: 1px solid;
-	border-color: green;
+	left: 0;
+	width: 19.6875%;
+	height: 90%;
+	/*border-right: 1px solid;*/
 }
 .article-main {
 	position: absolute;
 	right: 0;
-	width: 84.375%;
+	width: 75%;
 	height: 100%;
 }
 .article-title {
@@ -63,8 +60,6 @@
 	width: 100%;
 	letter-spacing: .2rem;
 	font-size: 2rem;
-	border: 1px solid;
-	border-color: green;
 }
 .article-scan {
 	position: absolute;
@@ -72,6 +67,6 @@
 	bottom: 0;
 	height: 31.8%;
 	width: 100%;
-	border: 1px solid;
-	border-color: red;
+	font-size: 1.5rem;
 }
+.index-main ul:last-child {border-bottom: 1px solid;}
