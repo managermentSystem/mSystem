@@ -1,0 +1,15 @@
+.collect-rank {
+	width: 100%;
+	height: 40%;
+	border: 1px solid;
+}
+.collect-ul {
+	list-style: none;
+}
+.collect-ul >li {
+	height: 10%;
+	width: 100%;
+	border: 1px solid;
+	font-size: 2rem;
+}
+/*.icon-angle-down:*/
