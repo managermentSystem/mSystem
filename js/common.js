@@ -1,14 +1,12 @@
 document.addEventListener("touchstart", function (e) {
-    // console.log(e.touches);
     startX = e.touches[0].screenX;
     startY = e.touches[0].screenY;
-    // console.log("x:" + startX + " y: " + startY);
 }, false)
 
 document.addEventListener("touchend", function (e) {
-    // console.log(e);
     var endX = e.changedTouches[0].screenX;
     var endY = e.changedTouches[0].screenY;
+
     var direction = getDirection(startX, startY, endX, endY);
     switch (direction) {
         case 1:
@@ -31,6 +29,9 @@ document.addEventListener("touchend", function (e) {
 function hideMenuNav() {
     var menu = $(".nav-menu");
     var search = $(".nav-search");
+    if($(".nav-side-box").css("left") == "0px") {
+        return;
+    }
     if (!menu.hasClass("nav-hide") && !search.hasClass("nav-hide")) {
         menu.addClass("nav-hide");
         search.addClass("nav-hide");
@@ -40,6 +41,9 @@ function hideMenuNav() {
 function showMenuNav() {
     var menu = $(".nav-menu");
     var search = $(".nav-search");
+    if($(".nav-side-box").css("left") == "0px") {
+        return;
+    }
     if (menu.hasClass("nav-hide") && search.hasClass("nav-hide")) {
         menu.removeClass("nav-hide");
         search.removeClass("nav-hide");
@@ -94,9 +98,25 @@ function showSideBox() {
     if (!$(".nav-bg").hasClass("nav-show")) {
         $(".nav-bg").addClass("nav-show");
     }
-    // document.body.addEventListener('touchmove', function (event) {
-    //     event.preventDefault();
-    // }, false);
+
+    $("body").children().not("nav").css({
+        "-webkit-backdrop-filter": "blur(3px)",
+        "-webkit-filter": "blur(3px)",
+        "-moz-filter": "blur(3px)",
+        "-ms-filter": "blur(3px)",
+        "-o-filter": "blur(3px)",
+        "filter": "blur(3px)"
+    });
+    $(".nav-btn").css({
+        "-webkit-backdrop-filter": "blur(3px)",
+        "-webkit-filter": "blur(3px)",
+        "-moz-filter": "blur(3px)",
+        "-ms-filter": "blur(3px)",
+        "-o-filter": "blur(3px)",
+        "filter": "blur(3px)"
+    });
+    // disableScroll();
+    a.disableScroll();
 }
 
 function hideSideBox() {
@@ -106,10 +126,33 @@ function hideSideBox() {
     if ($(".nav-bg").hasClass("nav-show")) {
         $(".nav-bg").removeClass("nav-show");
     }
+    $("body").children().not("nav").css({
+        "-webkit-backdrop-filter": "blur(0)",
+        "-webkit-filter": "blur(0)",
+        "-moz-filter": "blur(0)",
+        "-ms-filter": "blur(0)",
+        "-o-filter": "blur(0)",
+        "filter": "blur(0)"
+    });
+    $(".nav-btn").css({
+        "-webkit-backdrop-filter": "blur(0)",
+        "-webkit-filter": "blur(0)",
+        "-moz-filter": "blur(0)",
+        "-ms-filter": "blur(0)",
+        "-o-filter": "blur(0)",
+        "filter": "blur(0)"
+    });
+
+    a.enableScroll();
 }
 
+//
+// var disableScroll = function(){
+//     $(document).on('mousewheel', preventDefault);
+//     $(document).on('touchmove', preventDefault);
+// };
 
-Zepto(function($){
+var a = (function(){
     var keys = { 32: 1, 37: 1, 38: 1, 39: 1, 40: 1 };
 
     function preventDefault(e){
@@ -125,57 +168,85 @@ Zepto(function($){
         }
     }
 
+    var getScrollbarWidth = function(){
+        if(typeof getScrollbarWidth.value === 'undefined'){
+            var $test = $('<div></div>');
+            $test.css({
+                width: '100px',
+                height: '1px',
+                'overflow-y': 'scroll'
+            });
+
+            $('body').append($test);
+            getScrollbarWidth.value = $test[0].offsetWidth - $test[0].clientWidth;
+            $test.remove();
+        }
+        return getScrollbarWidth.value;
+    };
+
     // 记录原来的事件函数，以便恢复
-    var oldonwheel, oldonmousewheel1, oldonmousewheel2, oldontouchmove, oldonkeydown;
+    var oldonwheel, oldonmousewheel1, oldonmousewheel2, oldontouchmove, oldonkeydown; /*oldontouchstart, oldontouchend*/
     var isDisabled;
 
-    var disableScroll = function(){
-        if(window.addEventListener){ // older FF
-            window.addEventListener('DOMMouseScroll', preventDefault, false);
+    return {
+        disableScroll: function(){
+            if(window.addEventListener){ // older FF
+                window.addEventListener('DOMMouseScroll', preventDefault, false);
+            }
+
+            oldonwheel = window.onwheel;
+            window.onwheel = preventDefault; // modern standard
+
+            oldonmousewheel1 = window.onmousewheel;
+            window.onmousewheel = preventDefault; // older browsers, IE
+            oldonmousewheel2 = document.onmousewheel;
+            document.onmousewheel = preventDefault; // older browsers, IE
+
+            oldontouchmove = window.ontouchmove;
+            window.ontouchmove = preventDefault; // mobile
+
+            // oldontouchstart = window.ontouchstart;
+            // window.ontouchstart = preventDefault; // mobile
+            //
+            // oldontouchend = window.ontouchend;
+            // window.ontouchend = preventDefault; // mobile
+
+            oldonkeydown = document.onkeydown;
+            document.onkeydown = preventDefaultForScrollKeys;
+
+            // $('body, html').css({
+            //     'overflow': 'hidden',
+            //     'padding-right': getScrollbarWidth() + 'px'
+            // });
+
+
+            isDisabled = true;
+            },
+            enableScroll:  function(){
+            if(!isDisabled){
+                return;
+            }
+            if(window.removeEventListener){
+                window.removeEventListener('DOMMouseScroll', preventDefault, false);
+            }
+
+            window.onwheel = oldonwheel; // modern standard
+
+            window.onmousewheel = oldonmousewheel1; // older browsers, IE
+            document.onmousewheel = oldonmousewheel2; // older browsers, IE
+
+            window.ontouchmove = oldontouchmove; // mobile
+            // window.ontouchstart = oldontouchstart;
+            // window.ontouchend = oldontouchend;
+
+            document.onkeydown = oldonkeydown;
+
+            // $('body, html').css({
+            //     'overflow': 'auto',
+            //     'padding-right': '0'
+            // });
+
+            isDisabled = false;
         }
-
-        oldonwheel = window.onwheel;
-        window.onwheel = preventDefault; // modern standard
-
-        oldonmousewheel1 = window.onmousewheel;
-        window.onmousewheel = preventDefault; // older browsers, IE
-        oldonmousewheel2 = document.onmousewheel;
-        document.onmousewheel = preventDefault; // older browsers, IE
-
-        oldontouchmove = window.ontouchmove;
-        window.ontouchmove = preventDefault; // mobile
-
-        oldonkeydown = document.onkeydown;
-        document.onkeydown = preventDefaultForScrollKeys;
-        isDisabled = true;
     };
-
-    var enableScroll = function(){
-        if(!isDisabled){
-            return;
-        }
-        if(window.removeEventListener){
-            window.removeEventListener('DOMMouseScroll', preventDefault, false);
-        }
-
-        window.onwheel = oldonwheel; // modern standard
-
-        window.onmousewheel = oldonmousewheel1; // older browsers, IE
-        document.onmousewheel = oldonmousewheel2; // older browsers, IE
-
-        window.ontouchmove = oldontouchmove; // mobile
-
-        document.onkeydown = oldonkeydown;
-        isDisabled = false;
-    };
-
-    // bind
-    $('#closePopup').on('click', function(e){
-        $('#popupLayer').hide();
-        $('#bgMask').hide();
-        enableScroll();
-    });
-
-    disableScroll();
-
-});
+}($));
