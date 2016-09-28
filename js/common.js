@@ -95,11 +95,9 @@ function showSideBox() {
     $(".nav-side-box").animate({
         left: '0'
     });
-    if (!$(".nav-bg").hasClass("nav-show")) {
-        $(".nav-bg").addClass("nav-show");
-    }
+    $(".nav-bg").css("z-index", "2");
 
-    $("body").children().not("nav").css({
+    $("body").children().not("nav, script").css({
         "-webkit-backdrop-filter": "blur(3px)",
         "-webkit-filter": "blur(3px)",
         "-moz-filter": "blur(3px)",
@@ -123,10 +121,8 @@ function hideSideBox() {
     $(".nav-side-box").animate({
         left: '-65%'
     });
-    if ($(".nav-bg").hasClass("nav-show")) {
-        $(".nav-bg").removeClass("nav-show");
-    }
-    $("body").children().not("nav").css({
+    $(".nav-bg").css("z-index", "-1");
+    $("body").children().not("nav, script").css({
         "-webkit-backdrop-filter": "blur(0)",
         "-webkit-filter": "blur(0)",
         "-moz-filter": "blur(0)",
@@ -168,21 +164,21 @@ var a = (function(){
         }
     }
 
-    var getScrollbarWidth = function(){
-        if(typeof getScrollbarWidth.value === 'undefined'){
-            var $test = $('<div></div>');
-            $test.css({
-                width: '100px',
-                height: '1px',
-                'overflow-y': 'scroll'
-            });
-
-            $('body').append($test);
-            getScrollbarWidth.value = $test[0].offsetWidth - $test[0].clientWidth;
-            $test.remove();
-        }
-        return getScrollbarWidth.value;
-    };
+    // var getScrollbarWidth = function(){
+    //     if(typeof getScrollbarWidth.value === 'undefined'){
+    //         var $test = $('<div></div>');
+    //         $test.css({
+    //             width: '100px',
+    //             height: '1px',
+    //             'overflow-y': 'scroll'
+    //         });
+    //
+    //         $('body').append($test);
+    //         getScrollbarWidth.value = $test[0].offsetWidth - $test[0].clientWidth;
+    //         $test.remove();
+    //     }
+    //     return getScrollbarWidth.value;
+    // };
 
     // 记录原来的事件函数，以便恢复
     var oldonwheel, oldonmousewheel1, oldonmousewheel2, oldontouchmove, oldonkeydown; /*oldontouchstart, oldontouchend*/
@@ -214,10 +210,10 @@ var a = (function(){
             oldonkeydown = document.onkeydown;
             document.onkeydown = preventDefaultForScrollKeys;
 
-            // $('body, html').css({
-            //     'overflow': 'hidden',
-            //     'padding-right': getScrollbarWidth() + 'px'
-            // });
+            $('body, html').css({
+                'overflow': 'hidden'/*,
+                'padding-right': getScrollbarWidth() + 'px'*/
+            });
 
 
             isDisabled = true;
@@ -236,16 +232,14 @@ var a = (function(){
             document.onmousewheel = oldonmousewheel2; // older browsers, IE
 
             window.ontouchmove = oldontouchmove; // mobile
-            // window.ontouchstart = oldontouchstart;
-            // window.ontouchend = oldontouchend;
 
             document.onkeydown = oldonkeydown;
 
-            // $('body, html').css({
-            //     'overflow': 'auto',
-            //     'padding-right': '0'
-            // });
-
+            $('body, html').css({
+                'overflow': 'auto'/*,
+                'padding-right': '0'*/
+            });
+            keys = null;
             isDisabled = false;
         }
     };
