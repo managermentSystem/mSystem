@@ -7,22 +7,94 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!--iphone的私有标签，指定iphone中safari顶端的状态条的样式 -->
     <meta content="telephone=no" name="format-detection" /><!-- 忽略将页面中的数字识别为电话号码 -->
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="css/module.css">   
+    <link rel="stylesheet" href="css/collection.css">
 	<title>collection</title>
 </head>
 <body>
-	<header class="collected">
-		<span class=""></span>
-		<span class=""></span>
-	</header>
-	<div class="collected-rank">
-		<div>最近收藏
-			<ul class="">
-				<li>分类I</li>
-				<li>分类II</li>
-				<li>分类III</li>
-				<li>未分类</li>
+	<ul class="collected">
+		<li><span class="icon-plus-circle src-hidde"></span></li>
+    <li><span class="icon-edit"></span></li>
+    <li><span class="icon-ok-circled2 src-hidde"></span></li>
+	</ul>
+	<div class="collect-rank">
+			<ul class="collect-ul">
+				<li>
+          <a href="###"><span class="icon-right-open"></span>最近收藏</a>
+          <div class="collect-scan">
+            <span>9</span>
+            <span class="icon-roadblock src-hidde"></span>
+          </div>
+          <ul class="collect-article ">
+             <main class="article">
+              <ul>
+                <li class="article-content">
+                  <p class="article-inner">IT类</p>
+                  <div class="absolute-container">
+                    <div class="article-img" style="border-radius: 50%;"><img src="images/01.png" alt=""></div>
+                    <div class="article-main">
+                       <div class="article-title">Spring的loc容器是整个Spring框架的核心和基础 , Spring为什么要提供这样一个容器呢？</div>
+                      <p>浏览人数：</p> 
+                    </div>
+                  </div>
+                </li>
+                <li class="article-content">
+                  <p class="article-inner">IT类</p>
+                  <div class="absolute-container">
+                    <div class="article-img" style="border-radius: 50%;"><img src="images/01.png" alt=""></div>
+                    <div class="article-main">
+                       <div class="article-title">Spring的loc容器是整个Spring框架的核心和基础 , Spring为什么要提供这样一个容器呢？</div>
+                      <p>浏览人数：</p> 
+                    </div>
+                  </div>
+                </li>
+                <li class="article-content">
+                  <p class="article-inner">IT类</p>
+                  <div class="absolute-container">
+                    <div class="article-img" style="border-radius: 50%;"><img src="images/01.png" alt=""></div>
+                    <div class="article-main">
+                       <div class="article-title">Spring的loc容器是整个Spring框架的核心和基础 , Spring为什么要提供这样一个容器呢？</div>
+                      <p>浏览人数：</p> 
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </main>
+          </ul>
+				</li>
+				<li>
+  				<a href="###"><span class="icon-right-open"></span>分类I</a>
+          <div class="collect-scan">
+            <span>9</span>
+            <span class="icon-roadblock src-hidde"></span>
+          </div>
+          <ul class="collect-article"></ul>
+        </li>
+        <li>
+					<a href="###"><span class="icon-right-open"></span>分类II</a>
+         <div class="collect-scan">
+            <span>11</span>
+            <span class="icon-roadblock src-hidde"></span>
+          </div>
+          <ul class="collect-article"></ul>
+        </li>
+				<li>
+					<a href="###"><span class="icon-right-open"></span>分类III</a>
+          <div class="collect-scan">
+            <span>9</span>
+            <span class="icon-roadblock src-hidde"></span>
+          </div>
+          <ul class="collect-article"></ul></div>
+				</li>
 			</ul>
 		</div>
 	</div>
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.dotdotdot.min.js"></script>
+  <script>
+      $(function() {
+        var i=$('.article-title').dotdotdot(); });
+  </script>
 </body>
 </html>
