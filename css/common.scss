@@ -74,6 +74,10 @@ aside, footer, header, nav, section, audio, video {
   @include boxSizing;
 }
 
+button, a {
+  outline: none;
+}
+
 ol, ul {
   list-style: none;
 }
@@ -257,7 +261,7 @@ body {
     margin-top: 1%;
     margin-bottom: 4%;
     border-color: black;
-    @include boxShadow(1px 1px 1px rgba(255, 255, 255, 0.3));
+    @include boxShadow(0 1px 1px rgba(255, 255, 255, 0.3));
   }
 
   > ul {
@@ -286,3 +290,5 @@ body {
     }
   }
 }
+
+@import "search.scss";
