@@ -11,10 +11,9 @@
 	margin: 0;
 	width: 33.33%;
 	font-size: 4rem;
-	/*border: 1px solid;*/ 
 }
 .collected > li:first-child {float: left;}
-.collected > li:nth-child(2) {text-align: center;/*width: 33.33%;*/}
+.collected > li:nth-child(2) {text-align: center;}
 .collected > li:nth-child(3) {text-align: right;float: right;}
 .icon-edit {
 	font-size: 5rem;
@@ -58,4 +57,16 @@ span.icon-roadblock {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+.article {margin-bottom: 0;}
+.btn-more {
+	padding: 1.5% 0;
+	text-align: center;
+}
+.btn-more button {
+	padding: 1.5% 2%;
+	font-size: 1.6
+	box-shadow: -.1rem -.1rem 0.5 1rem #fff;
+	background-color: #fff;
+	border: 1px solid;
 }
