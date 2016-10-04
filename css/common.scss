@@ -68,10 +68,14 @@ $mainColor: #1d1d1d;
 html, body, div, span, h1, h2, h3, h4, h5, h6, p,
 blockquote, a, acronym, address, big, cite, code,
 img, ul, li, tbody, tfoot, thead, tr, th, td, article,
-aside, footer, header, nav, section, audio, video {
+aside, footer, header, nav, section, audio, video, form, input {
   margin: 0;
   padding: 0;
   @include boxSizing;
+}
+
+button, a {
+  outline: none;
 }
 
 ol, ul {
@@ -257,7 +261,7 @@ body {
     margin-top: 1%;
     margin-bottom: 4%;
     border-color: black;
-    @include boxShadow(1px 1px 1px rgba(255, 255, 255, 0.3));
+    @include boxShadow(0 1px 1px rgba(255, 255, 255, 0.3));
   }
 
   > ul {
@@ -286,3 +290,5 @@ body {
     }
   }
 }
+
+@import "search.scss";

@@ -25,30 +25,7 @@ document.addEventListener("touchend", function (e) {
     }
 }, false)
 
-// 隐藏菜单栏
-function hideMenuNav() {
-    var menu = $(".nav-menu");
-    var search = $(".nav-search");
-    if($(".nav-side-box").css("left") == "0px") {
-        return;
-    }
-    if (!menu.hasClass("nav-hide") && !search.hasClass("nav-hide")) {
-        menu.addClass("nav-hide");
-        search.addClass("nav-hide");
-    }
-}
-// 显示菜单栏
-function showMenuNav() {
-    var menu = $(".nav-menu");
-    var search = $(".nav-search");
-    if($(".nav-side-box").css("left") == "0px") {
-        return;
-    }
-    if (menu.hasClass("nav-hide") && search.hasClass("nav-hide")) {
-        menu.removeClass("nav-hide");
-        search.removeClass("nav-hide");
-    }
-}
+
 
 // 返回方向, 1为上，2为右， 3为下， 4为左
 function getDirection(startX, startY, endX, endY) {
@@ -91,6 +68,31 @@ $(".nav-bg").click(function() {
     hideSideBox();
 })
 
+// 隐藏菜单栏
+function hideMenuNav() {
+    var menu = $(".nav-menu");
+    var search = $(".nav-search");
+    if($(".nav-side-box").css("left") == "0px") {
+        return;
+    }
+    if (!menu.hasClass("nav-hide") && !search.hasClass("nav-hide")) {
+        menu.addClass("nav-hide");
+        search.addClass("nav-hide");
+    }
+}
+// 显示菜单栏
+function showMenuNav() {
+    var menu = $(".nav-menu");
+    var search = $(".nav-search");
+    if($(".nav-side-box").css("left") == "0px") {
+        return;
+    }
+    if (menu.hasClass("nav-hide") && search.hasClass("nav-hide")) {
+        menu.removeClass("nav-hide");
+        search.removeClass("nav-hide");
+    }
+}
+//显示侧边栏
 function showSideBox() {
     $(".nav-side-box").animate({
         left: '0'
@@ -113,10 +115,9 @@ function showSideBox() {
         "-o-filter": "blur(3px)",
         "filter": "blur(3px)"
     });
-    // disableScroll();
-    a.disableScroll();
+    scroll.disableScroll();
 }
-
+//隐藏侧边栏
 function hideSideBox() {
     $(".nav-side-box").animate({
         left: '-65%'
@@ -139,108 +140,7 @@ function hideSideBox() {
         "filter": "blur(0)"
     });
 
-    a.enableScroll();
+    scroll.enableScroll();
 }
 
-//
-// var disableScroll = function(){
-//     $(document).on('mousewheel', preventDefault);
-//     $(document).on('touchmove', preventDefault);
-// };
 
-var a = (function(){
-    var keys = { 32: 1, 37: 1, 38: 1, 39: 1, 40: 1 };
-
-    function preventDefault(e){
-        e = e || window.event;
-        e.preventDefault && e.preventDefault();
-        e.returnValue = false;
-    }
-
-    function preventDefaultForScrollKeys(e){
-        if(keys[e.keyCode]){
-            preventDefault(e);
-            return false;
-        }
-    }
-
-    // var getScrollbarWidth = function(){
-    //     if(typeof getScrollbarWidth.value === 'undefined'){
-    //         var $test = $('<div></div>');
-    //         $test.css({
-    //             width: '100px',
-    //             height: '1px',
-    //             'overflow-y': 'scroll'
-    //         });
-    //
-    //         $('body').append($test);
-    //         getScrollbarWidth.value = $test[0].offsetWidth - $test[0].clientWidth;
-    //         $test.remove();
-    //     }
-    //     return getScrollbarWidth.value;
-    // };
-
-    // 记录原来的事件函数，以便恢复
-    var oldonwheel, oldonmousewheel1, oldonmousewheel2, oldontouchmove, oldonkeydown; /*oldontouchstart, oldontouchend*/
-    var isDisabled;
-
-    return {
-        disableScroll: function(){
-            if(window.addEventListener){ // older FF
-                window.addEventListener('DOMMouseScroll', preventDefault, false);
-            }
-
-            oldonwheel = window.onwheel;
-            window.onwheel = preventDefault; // modern standard
-
-            oldonmousewheel1 = window.onmousewheel;
-            window.onmousewheel = preventDefault; // older browsers, IE
-            oldonmousewheel2 = document.onmousewheel;
-            document.onmousewheel = preventDefault; // older browsers, IE
-
-            oldontouchmove = window.ontouchmove;
-            window.ontouchmove = preventDefault; // mobile
-
-            // oldontouchstart = window.ontouchstart;
-            // window.ontouchstart = preventDefault; // mobile
-            //
-            // oldontouchend = window.ontouchend;
-            // window.ontouchend = preventDefault; // mobile
-
-            oldonkeydown = document.onkeydown;
-            document.onkeydown = preventDefaultForScrollKeys;
-
-            $('body, html').css({
-                'overflow': 'hidden'/*,
-                'padding-right': getScrollbarWidth() + 'px'*/
-            });
-
-
-            isDisabled = true;
-            },
-            enableScroll:  function(){
-            if(!isDisabled){
-                return;
-            }
-            if(window.removeEventListener){
-                window.removeEventListener('DOMMouseScroll', preventDefault, false);
-            }
-
-            window.onwheel = oldonwheel; // modern standard
-
-            window.onmousewheel = oldonmousewheel1; // older browsers, IE
-            document.onmousewheel = oldonmousewheel2; // older browsers, IE
-
-            window.ontouchmove = oldontouchmove; // mobile
-
-            document.onkeydown = oldonkeydown;
-
-            $('body, html').css({
-                'overflow': 'auto'/*,
-                'padding-right': '0'*/
-            });
-            keys = null;
-            isDisabled = false;
-        }
-    };
-}($));
