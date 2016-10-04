@@ -48,25 +48,65 @@
 span.icon-roadblock {
 	color: red;
 }
-.src-hidde {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
+
 .article {margin-bottom: 0;}
-.btn-more {
-	padding: 1.5% 0;
-	text-align: center;
-}
-.btn-more button {
-	padding: 1.5% 2%;
-	font-size: 1.6
-	box-shadow: -.1rem -.1rem 0.5 1rem #fff;
-	background-color: #fff;
+
+.alert-del {
+	position: absolute;
+	top: 40%;
+	left: 7.5%;
+	width: 85%;
+	height: 32%;
+	z-index: 10;
+	background-color: #000;
+	filter:alpha(opacity=80); 
+	-moz-opacity:0.8; 
+	opacity:0.8;
 	border: 1px solid;
 }
+.alert-del >ul {
+	position: absolute;
+	top: 20%;
+	left: 0;
+	list-style: none;
+	height: 60%;
+	width: 100%;
+	font-size: 1.6rem;
+	color: #fff;
+	z-index: 10;
+}
+.alert-del > ul >li {
+	padding-left: 4%;
+	width: 100%;
+	height: 35%;
+	letter-spacing: 0.15rem;
+}
+.del-btn {
+	position: absolute;
+	top: 80%;
+	height: 20%;
+	width: 100%;
+	color: #fff;
+	border-top: 1px solid;
+}
+.btn-ok,.btn-cancle {
+	display: inline-block;
+	border-style: none;
+	height: 96%;
+	width: 50%;
+	color: #fff;
+	background-color: #000;
+	filter:alpha(opacity=80); 
+	-moz-opacity:0.8; 
+	opacity:0.8;
+	font-size: 1.8rem;
+}
+.btn-ok {float: right;}
+.btn-cancle {
+	float: left;
+	border-right: 1px solid;	
+}
+.icon-cd {
+	font-size: 1.8rem;
+}
+.del-font {font-size: 1.5rem;}

@@ -99,3 +99,22 @@ height: 100%;}
 	font-size: 1.2rem;
 	padding-bottom: 2%;
 }
+.loading_top,.no_content,.loading_bottom,.no_more,.btn-more {
+	display: none;
+	padding: 2% 2%;
+	text-align: center;
+	font-size: 1.6rem;
+	background-color: transparent;
+	border: none;
+}
+.btn-more {display: block;}
+.src-hidde {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
