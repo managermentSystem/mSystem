@@ -29,7 +29,7 @@
 html, body, div, span, h1, h2, h3, h4, h5, h6, p,
 blockquote, a, acronym, address, big, cite, code,
 img, ul, li, tbody, tfoot, thead, tr, th, td, article,
-aside, footer, header, nav, section, audio, video {
+aside, footer, header, nav, section, audio, video, form, input {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -204,16 +204,33 @@ body {
       .nav-side-box > ul > li span {
         margin-right: 4%; }
 
+.search-base {
+  position: relative;
+  padding-top: 10%;
+  min-height: 5rem; }
+
 .search-bar {
+  position: absolute;
+  top: 0;
   width: 100%;
-  height: 10vh;
-  padding: 2vh 0; }
-  .search-bar form, .search-bar > a {
-    height: 100%; }
+  height: 100%;
+  padding: 2% 0; }
   .search-bar form {
+    position: relative;
+    height: 100%;
     float: left;
     width: 85%; }
+    .search-bar form input {
+      height: 100%;
+      width: 94%;
+      margin: 0 3%;
+      padding-left: 6%;
+      border-radius: 50px; }
+    .search-bar form span {
+      position: absolute;
+      top: 0; }
   .search-bar > a {
+    height: 100%;
     float: right;
     width: 15%; }
 
