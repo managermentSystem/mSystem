@@ -1,72 +1,101 @@
-.index-background {
+@media only screen and (max-width:315px) {
+	html {
+		font-size: 20%!important;
+	}
+}
+@media only screen(min-width:316px) and (max-width:516px) {
+	html {
+		font-size: 62.5%!important;
+	}
+}
+@media only screen(min-width:517px) and (max-width:640px) {
+	html {
+		font-size: 125%!important;
+	}
+}
+@media only screen(min-width:641px) and (max-width:750px) {
+	html {
+		font-size: 150%!important;
+	}
+}
+@media only screen(min-width:751px) and (max-width:1242px) {
+	html {
+		font-size: 187.5%!important;
+	}
+}
 
-}
-.index-background .ys {
-
-}
-.index-main {
+.index-head {
 	width: 100%;
+	padding: 3% 0;
+	border: 1px solid;
 }
-.index-main ul {
-	list-style: none;
-	margin-top: 10%;
-	width: 100%;
-}
-.index-main li {
-	position: relative;
-	width: 100%;
-	padding-top: 30%;
-	margin: 0;
-	border-top: 1px solid;
-}
-.index-main .index-article {
-	position: absolute;
-	top: 0;
-	left: 2%;
+.index-head >a {
+	font-size: 2rem;
 	height: 100%;
-	width: 96%;
+	width: 50%;
+	margin: 0 auto;
+	border: 1px solid;
+	
 }
-.article-inner {
-	position: absolute;
+.article {
+	margin-bottom: 2%;
+}
+.article >ul {
+	list-style: none;
 	width: 100%;
-	/*height: 30%;*/
-	top: 12%;
-	left: 0;
-	border-bottom: 1px solid;
+	height: 96%;
 }
 .article-content {
-	position: absolute;
-	height: 70%;
 	width: 100%;
-	bottom: 0;
-	border-color: red;
+	color: #5b5b5b;
+	border-top: 1px solid;
+	border-color: #ccc;
 }
-.article-content img {
-	position: absolute;
+.article-content:last-child {
+	border-bottom: 1px solid;
+	border-color: #ccc;
+}
+.article-inner {
+	width: 96%;
+	height: 10%;
+	margin: 0 2%;
+	padding-top: .5%;
+	font-size: 1rem;
+	border-bottom: 1px solid;	
+	border-color: #ccc;
+}
+.absolute-container {
+	position: relative;
+	width: 94%;
+	padding-top: 15%;
 	top: 0;
-	left: 0;
-	width: 19.6875%;
-	height: 90%;
-	/*border-right: 1px solid;*/
+	left: 3%;
 }
+.article-img {
+	position: absolute;	
+	left: 0;
+	top: 2%;
+	width: 15%;
+	height: 96%;
+	border: 1px solid;
+}
+.article-img img {width: 100%;
+height: 100%;}
 .article-main {
 	position: absolute;
-	right: 0;
-	width: 75%;
+	left: 15%;
+	top: 0;
+	padding-left: 2%;
+	letter-spacing: .15rem;
+	width: 85%;
 	height: 100%;
 }
 .article-title {
-	height: 66.66%;
 	width: 100%;
-	letter-spacing: .2rem;
-	font-size: 2rem;
+	height: 66.7%;
+	font-size: 1.6rem;
 }
-.article-scan {
-	position: absolute;
-	display: block;
-	bottom: 0;
-	height: 31.8%;
-	width: 100%;
-	font-size: 1.5rem;
+.article-main > p {
+	font-size: 1.2rem;
+	padding-bottom: 2%;
 }
-.index-main ul:last-child {border-bottom: 1px solid;}
