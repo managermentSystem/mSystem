@@ -21,10 +21,18 @@ $mainColor: #1d1d1d;
   box-shadow: $param;
 }
 
-@mixin boxSizing {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+@mixin boxSizing($param) {
+  -webkit-box-sizing: $param;
+  -moz-box-sizing: $param;
+  box-sizing: $param;
+}
+
+@mixin transform($param...) {
+  -webkit-transform: $param;
+  -moz-transform: $param;
+  -ms-transform: $param;
+  -o-transform: $param;
+  transform: $param;
 }
 
 @font-face {
@@ -68,13 +76,11 @@ $mainColor: #1d1d1d;
 html, body, div, span, h1, h2, h3, h4, h5, h6, p,
 blockquote, a, acronym, address, big, cite, code,
 img, ul, li, tbody, tfoot, thead, tr, th, td, article,
-aside, footer, header, nav, section, audio, video, form, input {
+aside, footer, header, nav, section, audio, video, form,
+input, button {
   margin: 0;
   padding: 0;
-  @include boxSizing;
-}
-
-button, a {
+  @include boxSizing(border-box);
   outline: none;
 }
 
@@ -125,6 +131,17 @@ body {
   //-ms-filter: blur(0px);
   //-o-filter: blur(0px);
   //filter: blur(0px);
+}
+
+.sr-hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 .demo {
@@ -253,7 +270,7 @@ body {
       right: 5%;
       font-size: toRem(22);
       cursor: pointer;
-      @include boxSizing;
+      @include boxSizing(border-box);
     }
   }
 
@@ -292,3 +309,5 @@ body {
 }
 
 @import "search.scss";
+
+//@import "module.css";

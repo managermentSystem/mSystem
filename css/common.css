@@ -29,14 +29,13 @@
 html, body, div, span, h1, h2, h3, h4, h5, h6, p,
 blockquote, a, acronym, address, big, cite, code,
 img, ul, li, tbody, tfoot, thead, tr, th, td, article,
-aside, footer, header, nav, section, audio, video, form, input {
+aside, footer, header, nav, section, audio, video, form,
+input, button {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-button, a {
+  box-sizing: border-box;
   outline: none; }
 
 ol, ul {
@@ -63,6 +62,16 @@ html, body {
 body {
   margin: 0 auto;
   font-family: "Microsoft YaHei UI", "宋体"; }
+
+.sr-hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
 
 .demo {
   position: absolute;
@@ -204,10 +213,28 @@ body {
       .nav-side-box > ul > li span {
         margin-right: 4%; }
 
+h6.classify-title {
+  width: 100%;
+  margin-left: 8%;
+  margin-top: 2%;
+  margin-bottom: .5%;
+  border-bottom: 1px solid;
+  font-size: 1.2rem; }
+
+hr.break-line {
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.2); }
+
+.search-result {
+  width: 100%;
+  overflow-x: hidden; }
+
 .search-base {
   position: relative;
+  min-height: 3.5rem;
   padding-top: 10%;
-  min-height: 5rem; }
+  margin-top: 2%;
+  margin-bottom: 5%; }
 
 .search-bar {
   position: absolute;
@@ -218,20 +245,92 @@ body {
   .search-bar form {
     position: relative;
     height: 100%;
-    float: left;
-    width: 85%; }
-    .search-bar form input {
-      height: 100%;
-      width: 94%;
-      margin: 0 3%;
-      padding-left: 6%;
-      border-radius: 50px; }
-    .search-bar form span {
-      position: absolute;
-      top: 0; }
-  .search-bar > a {
+    width: 100%; }
+    .search-bar form label {
+      float: left;
+      width: 90%;
+      height: 100%; }
+      .search-bar form label input {
+        height: 100%;
+        width: 97%;
+        margin-left: 3%;
+        padding-left: 11%;
+        padding-right: 8%;
+        border-radius: 50px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgba(10, 10, 10, 0.3);
+        font-size: 1.33rem; }
+      .search-bar form label span {
+        position: absolute;
+        top: 50%;
+        font-size: 2rem;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%); }
+      .search-bar form label span:first-child {
+        left: 7%; }
+      .search-bar form label span:last-child {
+        right: 12%; }
+  .search-bar button {
+    position: relative;
     height: 100%;
     float: right;
-    width: 15%; }
+    width: 10%;
+    border: none;
+    background: inherit; }
+    .search-bar button span {
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      -webkit-transform: translate(50%, -50%);
+      -moz-transform: translate(50%, -50%);
+      -ms-transform: translate(50%, -50%);
+      -o-transform: translate(50%, -50%);
+      transform: translate(50%, -50%);
+      font-size: 2rem; }
+      .search-bar button span:before {
+        vertical-align: text-bottom; }
+
+.search-classify, .search-article {
+  color: rgba(10, 10, 10, 0.3); }
+  .search-classify ul, .search-article ul {
+    margin-left: 8%;
+    padding: .5% 2%; }
+  .search-classify button, .search-article button {
+    display: block;
+    margin: 0 auto;
+    border: none;
+    background: none;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 1.2rem;
+    cursor: pointer; }
+
+.search-classify li {
+  line-height: 2.222em;
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.8); }
+  .search-classify li a {
+    display: block;
+    width: 100%; }
+
+.search-other a {
+  display: block;
+  width: 100%;
+  padding: 1% 2%;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: rgba(0, 0, 0, 0.2);
+  background: none;
+  text-align: left;
+  font-size: 1.2rem;
+  cursor: pointer; }
+  .search-other a span:first-child {
+    float: left;
+    margin-right: .8%; }
+  .search-other a span:last-child {
+    float: right; }
 
 /*# sourceMappingURL=common.css.map */
