@@ -67,6 +67,11 @@ $("#menuBack").click(function() {
 $(".nav-bg").click(function() {
     hideSideBox();
 })
+//搜索点击事件
+$("#navSearch").click(function() {
+    location.href = "search.html";
+})
+
 
 // 隐藏菜单栏
 function hideMenuNav() {
