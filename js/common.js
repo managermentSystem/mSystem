@@ -104,22 +104,9 @@ function showSideBox() {
     });
     $(".nav-bg").css("z-index", "2");
 
-    $("body").children().not("nav, script").css({
-        "-webkit-backdrop-filter": "blur(3px)",
-        "-webkit-filter": "blur(3px)",
-        "-moz-filter": "blur(3px)",
-        "-ms-filter": "blur(3px)",
-        "-o-filter": "blur(3px)",
-        "filter": "blur(3px)"
-    });
-    $(".nav-btn").css({
-        "-webkit-backdrop-filter": "blur(3px)",
-        "-webkit-filter": "blur(3px)",
-        "-moz-filter": "blur(3px)",
-        "-ms-filter": "blur(3px)",
-        "-o-filter": "blur(3px)",
-        "filter": "blur(3px)"
-    });
+    $("body").children().not("nav, script").addClass("blur");
+    $(".nav-btn").addClass("blur");
+
     scroll.disableScroll();
 }
 //隐藏侧边栏
@@ -128,24 +115,9 @@ function hideSideBox() {
         left: '-65%'
     });
     $(".nav-bg").css("z-index", "-1");
-    $("body").children().not("nav, script").css({
-        "-webkit-backdrop-filter": "blur(0)",
-        "-webkit-filter": "blur(0)",
-        "-moz-filter": "blur(0)",
-        "-ms-filter": "blur(0)",
-        "-o-filter": "blur(0)",
-        "filter": "blur(0)"
-    });
-    $(".nav-btn").css({
-        "-webkit-backdrop-filter": "blur(0)",
-        "-webkit-filter": "blur(0)",
-        "-moz-filter": "blur(0)",
-        "-ms-filter": "blur(0)",
-        "-o-filter": "blur(0)",
-        "filter": "blur(0)"
-    });
+
+    $("body").children().not("nav, script").removeClass("blur");
+    $(".nav-btn").removeClass("blur");
 
     scroll.enableScroll();
 }
-
-

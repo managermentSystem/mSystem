@@ -55,6 +55,14 @@ body {
   height: 1500px;
   z-index: -1; }
 
+.blur {
+  -webkit-backdrop-filter: blur(3px);
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -ms-filter: blur(3px);
+  -o-filter: blur(3px);
+  filter: blur(3px); }
+
 :before {
   margin: 0;
   padding: 0; }
