@@ -12,12 +12,12 @@
     <div class="search-bar">
         <form action="">
             <label>
-                <span class="icon-th-list"></span>
-                <input type="text" placeholder="search">
-                <span class="icon-th-list"></span>
+                <span class="icon-search"></span>
+                <input id="search-input" name="searchValue" type="text" placeholder="search" autofocus autocomplete=off>
+                <span id="search-cancel" class="icon-cancel-circled sr-hide"></span>
             </label>
             <button type="submit">
-                <span class="icon-th-list"></span>
+                <span class="icon-logout"></span>
             </button>
         </form>
 
@@ -31,10 +31,10 @@
             <li><a href="">分类1</a></li>
             <li><a href="">分类2</a></li>
         </ul>
-        <hr>
+        <!--<hr>-->
         <button>
             查看更多
-            <span class="icon-th-list"></span>
+            <span class="icon-angle-down"></span>
         </button>
     </section>
     <hr class="break-line">
@@ -42,28 +42,47 @@
         <h6 class="classify-title">分类</h6>
         <ul>
         </ul>
-        <hr>
+        <!--<hr>-->
         <button>
             查看更多
-            <span class="icon-th-list"></span>
+            <span class="icon-angle-down"></span>
         </button>
     </section>
     <hr class="break-line">
     <section class="search-other">
         <a>
-            <span class="icon-th-list"></span>
+            <span class="icon-search"></span>
             其他
-            <span class="icon-th-list"></span>
+            <span class="icon-angle-right"></span>
         </a>
     </section>
 </div>
 <div class="search-tag">
     <section class="hot-tag">
         <h6 class="classify-title">热门搜索词</h6>
+        <ul class="search-tag-cloud">
+            <li><a href="">java</a></li>
+            <li><a href="">script</a></li>
+            <li><a href="">spring</a></li>
+            <li><a href="">csharp</a></li>
+            <li><a href="">abcdefghi</a></li>
+            <li><a href="">jpengcanqiang</a></li>
+            <li><a href="">灿强</a></li>
+        </ul>
     </section>
     <seaction class="history">
         <h6 class="classify-title">历史搜索词</h6>
+        <ul class="search-tag-cloud">
+            <li><a href="">java</a></li>
+            <li><a href="">jjavascript</a></li>
+            <li><a href="">jspring</a></li>
+            <li><a href="">jc sharp</a></li>
+            <li><a href="">abcdefghi</a></li>
+            <li><a href="">jpengcanqiang</a></li>
+            <li><a href="">灿强</a></li>
+        </ul>
     </seaction>
+    <p><a href="javascript:;">清空搜索记录</a></p>
 </div>
 <script src="js/jquery.js"></script>
 <script src="js/common.js"></script>
