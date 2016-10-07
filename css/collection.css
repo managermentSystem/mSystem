@@ -16,7 +16,6 @@
 .collected > li:nth-child(2) {text-align: center;}
 .collected > li:nth-child(3) {text-align: right;float: right;}
 .collected >li .icon-edit,.icon-ok-circled2,.icon-plus-circle{font-weight: lighter;}
-.icon-edit {font-size: 4rem;}
 
 .collect-ul {list-style: none;}
 .collect-ul > li {
