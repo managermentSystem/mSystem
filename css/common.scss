@@ -66,7 +66,7 @@ a:hover {
   color: inherit;
 }
 
-a, button, input {
+a, button, input, li, span {
   -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
 }
 
@@ -167,18 +167,39 @@ body {
     border-top-#{$radiusDir}-radius: toRem(50);
     border-bottom-#{$radiusDir}-radius: toRem(50);
     color: white;
-    font-size: toRem(30);
+    font-size: toRem(24);
     background-color: $mainColor;
     opacity: 1;
     cursor: pointer;
 
     @include transition($position 1.2s ease, opacity 1.0s linear 0.2s);
   }
+
+  %navSpan {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+    //margin-left: -0.5em;
+    line-height: 1em;
+  }
+
   .nav-menu {
     @include navButton(left, right);
+
+    span {
+      @extend %navSpan;
+      left: 50%;
+      margin-left: -0.5em;
+    }
   }
   .nav-search {
     @include navButton(right, left);
+
+    span {
+      @extend %navSpan;
+      right: 50%;
+      margin-right: -0.5em;
+    }
   }
   .nav-menu.nav-hide {
     left: -16%;
@@ -188,14 +209,7 @@ body {
     right: -16%;
     opacity: 0;
   }
-  [class^="icon-"] {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -0.5em;
-    margin-left: -0.5em;
-    line-height: 1em;
-  }
+
 }
 
 .nav-bg {
@@ -229,11 +243,17 @@ body {
   z-index: 2;
   width: 60%;
   height: 100%;
+  font-weight: lighter;
+  @include transform(translate3d(0,0,0));
+  @include transition(all .5s ease);
 
   @include boxShadow(6px 0 20px rgba(0, 0, 0, 0.5));
 
   color: white;
   background-color: $mainColor;
+  &.nav-show {
+    left: 0;
+  }
 
   > div {
     position: relative;
@@ -249,6 +269,7 @@ body {
       @extend %a;
       left: 5%;
       padding-left: 5%;
+      font-weight: lighter;
     }
     span {
       @extend %a;

@@ -2,7 +2,6 @@ document.addEventListener("touchstart", function (e) {
     startX = e.touches[0].screenX;
     startY = e.touches[0].screenY;
 }, false)
-
 document.addEventListener("touchend", function (e) {
     var endX = e.changedTouches[0].screenX;
     var endY = e.changedTouches[0].screenY;
@@ -24,9 +23,6 @@ document.addEventListener("touchend", function (e) {
             console.log("向左滑");
     }
 }, false)
-
-
-
 // 返回方向, 1为上，2为右， 3为下， 4为左
 function getDirection(startX, startY, endX, endY) {
     var dx = endX - startX;
@@ -48,7 +44,6 @@ function getDirection(startX, startY, endX, endY) {
             return 4;
     }
 }
-
 // 返回角度
 function getAngle(x, y) {
     return Math.atan2(y, x) * (180 / Math.PI);
@@ -56,17 +51,14 @@ function getAngle(x, y) {
 
 
 //绑定菜单点击事件
-$("#navMenu").click(function() {
-    showSideBox();
-})
+$("#navMenu").on("click", showSideBox);
 
-$("#menuBack").click(function() {
-    hideSideBox();
-})
-
-$(".nav-bg").click(function() {
-    hideSideBox();
-})
+    // a = setInterval(showSideBox, 350);/*showSideBox();*/
+// })
+// $("#menuBack").click(function() {
+//     hideSideBox();
+// })
+$(".nav-bg").on("click", hideSideBox);
 //搜索点击事件
 $("#navSearch").click(function() {
     location.href = "search.html";
@@ -77,9 +69,6 @@ $("#navSearch").click(function() {
 function hideMenuNav() {
     var menu = $(".nav-menu");
     var search = $(".nav-search");
-    if($(".nav-side-box").css("left") == "0px") {
-        return;
-    }
     if (!menu.hasClass("nav-hide") && !search.hasClass("nav-hide")) {
         menu.addClass("nav-hide");
         search.addClass("nav-hide");
@@ -89,9 +78,6 @@ function hideMenuNav() {
 function showMenuNav() {
     var menu = $(".nav-menu");
     var search = $(".nav-search");
-    if($(".nav-side-box").css("left") == "0px") {
-        return;
-    }
     if (menu.hasClass("nav-hide") && search.hasClass("nav-hide")) {
         menu.removeClass("nav-hide");
         search.removeClass("nav-hide");
@@ -99,9 +85,10 @@ function showMenuNav() {
 }
 //显示侧边栏
 function showSideBox() {
-    $(".nav-side-box").animate({
-        left: '0'
-    });
+    // clearInterval(a);
+    if (!$(".nav-side-box").hasClass("nav-show")) {
+        $(".nav-side-box").addClass("nav-show")
+    }
     $(".nav-bg").css("z-index", "2");
 
     $("body").children().not("nav, script").addClass("blur");
@@ -111,13 +98,42 @@ function showSideBox() {
 }
 //隐藏侧边栏
 function hideSideBox() {
-    $(".nav-side-box").animate({
-        left: '-65%'
-    });
-    $(".nav-bg").css("z-index", "-1");
+    if ($(".nav-side-box").hasClass("nav-show")) {
+        $(".nav-side-box").removeClass("nav-show")
+    }
 
     $("body").children().not("nav, script").removeClass("blur");
     $(".nav-btn").removeClass("blur");
 
+    $(".nav-bg").css("z-index", "-1");
+
     scroll.enableScroll();
 }
+
+//显示元素
+function srShow(element) {
+    if (element.hasClass("sr-hide")) {
+        element.removeClass("sr-hide");
+    }
+};
+//隐藏元素
+function srHide(element) {
+    if (!element.hasClass("sr-hide")) {
+        element.addClass("sr-hide");
+    }
+};
+
+//监视搜索输入框
+$("#search-input").bind('input propertychange', function() {// propertychange
+    var cancel = $("#search-cancel");
+    if ($("#search-input").val() == "") {
+        srHide(cancel);
+        return;
+    }
+    srShow(cancel);
+});
+//搜索框重置输入
+$("#search-cancel").click(function() {
+    $("#search-input").val("");
+    srHide($(this));
+});

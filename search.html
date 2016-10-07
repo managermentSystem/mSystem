@@ -13,8 +13,8 @@
         <form action="">
             <label>
                 <span class="icon-search"></span>
-                <input name="searchValue" type="text" placeholder="search" autocomplete>
-                <span class="icon-cancel-circled"></span>
+                <input id="search-input" name="searchValue" type="text" placeholder="search" autofocus autocomplete=off>
+                <span id="search-cancel" class="icon-cancel-circled sr-hide"></span>
             </label>
             <button type="submit">
                 <span class="icon-logout"></span>
@@ -24,7 +24,7 @@
     </div>
 </div>
 <hr>
-<div class="search-result">
+<div class="search-result sr-hide">
     <section class="search-classify">
         <h6 class="classify-title">分类</h6>
         <ul>
@@ -57,7 +57,7 @@
         </a>
     </section>
 </div>
-<div class="search-tag sr-hide">
+<div class="search-tag">
     <section class="hot-tag">
         <h6 class="classify-title">热门搜索词</h6>
         <ul class="search-tag-cloud">

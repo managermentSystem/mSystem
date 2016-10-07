@@ -20,7 +20,7 @@ a:hover {
   text-decoration: none;
   color: inherit; }
 
-a, button, input {
+a, button, input, li, span {
   -webkit-tap-highlight-color: rgba(255, 0, 0, 0); }
 
 html {
@@ -83,6 +83,11 @@ body {
   -ms-transition: filter 0.3s linear;
   -o-transition: filter 0.3s linear;
   transition: filter 0.3s linear; }
+  .nav-btn .nav-menu span, .nav-btn .nav-search span {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+    line-height: 1em; }
   .nav-btn .nav-menu {
     position: absolute;
     top: 0;
@@ -92,7 +97,7 @@ body {
     border-top-right-radius: 5rem;
     border-bottom-right-radius: 5rem;
     color: white;
-    font-size: 3rem;
+    font-size: 2.4rem;
     background-color: #1d1d1d;
     opacity: 1;
     cursor: pointer;
@@ -101,6 +106,9 @@ body {
     -ms-transition: left 1.2s ease, opacity 1s linear 0.2s;
     -o-transition: left 1.2s ease, opacity 1s linear 0.2s;
     transition: left 1.2s ease, opacity 1s linear 0.2s; }
+    .nav-btn .nav-menu span {
+      left: 50%;
+      margin-left: -0.5em; }
   .nav-btn .nav-search {
     position: absolute;
     top: 0;
@@ -110,7 +118,7 @@ body {
     border-top-left-radius: 5rem;
     border-bottom-left-radius: 5rem;
     color: white;
-    font-size: 3rem;
+    font-size: 2.4rem;
     background-color: #1d1d1d;
     opacity: 1;
     cursor: pointer;
@@ -119,19 +127,15 @@ body {
     -ms-transition: right 1.2s ease, opacity 1s linear 0.2s;
     -o-transition: right 1.2s ease, opacity 1s linear 0.2s;
     transition: right 1.2s ease, opacity 1s linear 0.2s; }
+    .nav-btn .nav-search span {
+      right: 50%;
+      margin-right: -0.5em; }
   .nav-btn .nav-menu.nav-hide {
     left: -16%;
     opacity: 0; }
   .nav-btn .nav-search.nav-hide {
     right: -16%;
     opacity: 0; }
-  .nav-btn [class^="icon-"] {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -0.5em;
-    margin-left: -0.5em;
-    line-height: 1em; }
 
 .nav-bg {
   position: fixed;
@@ -146,11 +150,24 @@ body {
   z-index: 2;
   width: 60%;
   height: 100%;
+  font-weight: lighter;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   -webkit-box-shadow: 6px 0 20px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 6px 0 20px rgba(0, 0, 0, 0.5);
   box-shadow: 6px 0 20px rgba(0, 0, 0, 0.5);
   color: white;
   background-color: #1d1d1d; }
+  .nav-side-box.nav-show {
+    left: 0; }
   .nav-side-box > div {
     position: relative;
     height: 10%;
@@ -161,7 +178,8 @@ body {
       font-size: 2rem; }
     .nav-side-box > div h2 {
       left: 5%;
-      padding-left: 5%; }
+      padding-left: 5%;
+      font-weight: lighter; }
     .nav-side-box > div span {
       right: 5%;
       font-size: 2.2rem;
@@ -203,10 +221,11 @@ h6.classify-title {
   padding-bottom: .5%;
   border-bottom: 1px solid;
   border-bottom-color: rgba(0, 0, 0, 0.2);
-  font-size: 1.4rem; }
+  font-size: 1.4rem;
+  font-weight: lighter; }
 
 hr.break-line {
-  border-width: 3px;
+  border-width: 5px;
   border-color: rgba(0, 0, 0, 0.2); }
 
 .search-result {
@@ -257,7 +276,9 @@ hr.break-line {
       .search-bar form label span:first-child {
         left: 5%; }
       .search-bar form label span:last-child {
-        right: 12%; }
+        right: 12%;
+        color: rgba(10, 10, 10, 0.3);
+        cursor: pointer; }
   .search-bar button {
     position: relative;
     height: 100%;
@@ -274,7 +295,8 @@ hr.break-line {
       -ms-transform: translate(50%, -50%);
       -o-transform: translate(50%, -50%);
       transform: translate(50%, -50%);
-      font-size: 2rem; }
+      font-size: 2rem;
+      cursor: pointer; }
 
 .search-classify, .search-article {
   color: rgba(10, 10, 10, 0.3); }
