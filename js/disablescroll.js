@@ -1,4 +1,4 @@
-var scroll = (function(){
+var scroll =  function(){
     var keys = { 32: 1, 37: 1, 38: 1, 39: 1, 40: 1 };
 
     function preventDefault(e){
@@ -47,7 +47,7 @@ var scroll = (function(){
             isDisabled = true;
         },
         enableScroll:  function(){
-            if(!isDisabled){
+            if(isDisabled){
                 return;
             }
             if(window.removeEventListener){
@@ -70,4 +70,4 @@ var scroll = (function(){
             isDisabled = false;
         }
     };
-}($));
+}

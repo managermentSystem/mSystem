@@ -64,7 +64,6 @@ $("#navSearch").click(function() {
     location.href = "search.html";
 })
 
-
 // 隐藏菜单栏
 function hideMenuNav() {
     var menu = $(".nav-menu");
@@ -90,11 +89,12 @@ function showSideBox() {
         $(".nav-side-box").addClass("nav-show")
     }
     $(".nav-bg").css("z-index", "2");
-
+    //添加毛玻璃效果
     $("body").children().not("nav, script").addClass("blur");
     $(".nav-btn").addClass("blur");
 
-    scroll.disableScroll();
+    scroll().disableScroll();
+    // scroll1 = null;
 }
 //隐藏侧边栏
 function hideSideBox() {
@@ -107,7 +107,9 @@ function hideSideBox() {
 
     $(".nav-bg").css("z-index", "-1");
 
-    scroll.enableScroll();
+
+    scroll().enableScroll();
+
 }
 
 //显示元素
@@ -137,3 +139,4 @@ $("#search-cancel").click(function() {
     $("#search-input").val("");
     srHide($(this));
 });
+
