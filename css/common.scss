@@ -4,7 +4,7 @@
 
 $debug: 1px solid;
 $maxWidth: 768px 992px 1200px;
-$mainColor: #1d1d1d;
+$mainColor: #2c2c2c;
 
 @function toRem($px) {
   @return $px / 10 * 1rem;
@@ -100,13 +100,6 @@ html, body {
 body {
   margin: 0 auto;
   font-family: "Microsoft YaHei UI", "宋体";
-
-  //-webkit-backdrop-filter: blur(0px);
-  //-webkit-filter: blur(0px); /* Chrome, Opera */
-  //-moz-filter: blur(0px);
-  //-ms-filter: blur(0px);
-  //-o-filter: blur(0px);
-  //filter: blur(0px);
 }
 
 .sr-hide {
@@ -125,7 +118,6 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 1500px;
   z-index: -1;
 }
 
@@ -217,25 +209,8 @@ body {
   z-index: -1;
   width: 100%;
   height: 100%;
-  //background-color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
-  //opacity: 0;
-
-  //@include boxShadow(inset 500px 500px 500px rgba(255, 255, 255, 0.5));
-
-  //-webkit-filter: blur(5px); /* Chrome, Opera */
-  //-moz-filter: blur(5px);
-  //-ms-filter: blur(5px);
-  //-o-filter: blur(5px);
-  //filter: blur(5px);
-
-  //@include transition(all .3s linear);
 }
-
-//.nav-bg.nav-show {
-//  z-index: 1;
-//  //opacity: 1;
-//}
 
 .nav-side-box {
   position: fixed;
@@ -298,7 +273,7 @@ body {
       cursor: pointer;
 
       &:hover {
-        background-color: #2b2b2b;
+        background-color: #1d1d1d;
         @include boxShadow(inset -1px -1px 2px rgba(255, 255, 255, 0.2));
       }
 
@@ -316,4 +291,3 @@ body {
 
 
 @import "search.scss";
-//@import "module.css";

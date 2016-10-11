@@ -53,11 +53,9 @@ function getAngle(x, y) {
 //绑定菜单点击事件
 $("#navMenu").on("click", showSideBox);
 
-    // a = setInterval(showSideBox, 350);/*showSideBox();*/
-// })
-// $("#menuBack").click(function() {
-//     hideSideBox();
-// })
+$("#menuBack").click(function() {
+    hideSideBox();
+})
 $(".nav-bg").on("click", hideSideBox);
 //搜索点击事件
 $("#navSearch").click(function() {
