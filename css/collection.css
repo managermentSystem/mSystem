@@ -4,20 +4,20 @@
 }
 .collected > li {
 	display: inline-block;
-	padding-bottom: 2.5%;
+	padding-bottom: 5%;
 	padding-top: 5%;
 	padding-left: 0;
 	padding-right: 0;
 	margin: 0;
 	width: 33.33%;
-	font-size: 4rem;
+	font-size:2.5rem;
 }
 .collected > li:first-child {float: left;}
 .collected > li:nth-child(2) {text-align: center;}
 .collected > li:nth-child(3) {text-align: right;float: right;}
-.collected >li .icon-edit,.icon-ok-circled2,.icon-plus-circle{font-weight: lighter;}
-.icon-edit {font-size: 4rem;}
-
+.collected >li .icon-plus-circle-1,.icon-edit-alt,.icon-ok-circled2 {font-weight: lighter;}
+.icon-plus-circle-1 {padding-left: 10%;}
+.icon-ok-circled2 {padding-right: 10%;}
 .collect-ul {list-style: none;}
 .collect-ul > li {
 	font-size: 1.6rem;
@@ -43,20 +43,18 @@
 	width: 8%;
 	padding-right: 0.5%;
 }
-span.icon-roadblock {color: red;}
-
-.article {margin-bottom: 0;}
+span.icon-minus-circle-1 {color: red;font-weight: lighter;}
 
 .alert-del {
 	position: absolute;
-	top: 40%;
-	left: 12%;
-	width: 76%;
+	top: 30%;
+	left: 15%;
+	width: 70%;
 	height: 32%;
 	z-index: 10;
-	background-color: #444;
+	background-color: rgba(0,0,0,.7);
 	font-weight: lighter;
-	border-radius: 2%;
+	border-radius: 3%;
 }
 .alert-del >ul {
 	position: absolute;
@@ -78,14 +76,15 @@ span.icon-roadblock {color: red;}
 .alert-del >ul>li>span {
 	float: left;
 	font-weight: lighter;
-	padding-left: 4%;
+	padding-left: 7%;
 	padding-right: 1.5%;
 	height: 100%;
-	width: 12%;
+	width: 15%;
 }
 .del-font {
 	height: 100%;
-	width: 88%;
+	width: 75%;
+	margin-right: 10%;
 }
 .del-btn {
 	position: absolute;
@@ -100,7 +99,7 @@ span.icon-roadblock {color: red;}
 	height: 96%;
 	width: 50%;
 	color: #fff;
-	background-color: #444;
+	background-color: transparent;
 	font-size: 1.8rem;
 }
 .btn-cancle {float: left;}
@@ -110,17 +109,15 @@ span.icon-roadblock {color: red;}
 }
 .alert-sort {
 	position: absolute;
-	top: 40%;
+	top: 30%;
 	left: 22.5%;
 	width: 55%;
 	height: 35%;
-	background-color: #444;
-	border: 1px solid;
-	border-radius: 2%;
-	border-color: #444;
+	background-color: rgba(0,0,0,.7);
+	border-radius: 3%;
 }
 .alert-sort >ul {
-	margin-top: 10%;
+	margin-top: 15%;
 	list-style: none;
 	height: 60%;
 	width: 100%;
