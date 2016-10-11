@@ -49,6 +49,7 @@ h6.classify-title {
     width: 100%;
 
     label {
+      position: relative;
       float: left;
       width: 88%;
       height: 100%;
@@ -57,7 +58,7 @@ h6.classify-title {
         height: 100%;
         width: 97%;
         margin-left: 3%;
-        padding-left: 10%;
+        padding-left: 8%;
         padding-right: 8%;
         border-radius: 50px;
         border-style: solid;
@@ -69,7 +70,7 @@ h6.classify-title {
       span {
         position: absolute;
         top: 50%;
-        font-size: 2rem;
+        font-size: 1.6rem;
         @include transform(translateY(-50%));
       }
 
@@ -78,7 +79,7 @@ h6.classify-title {
         color: $search-color1;
       }
       span:last-child {
-        right: 12%;
+        right: 2%;
         color: $search-color1;
         cursor: pointer;
       }
@@ -100,7 +101,7 @@ h6.classify-title {
       right: 60%;
       //height: 100%;
       @include transform(translate(50%, -50%));
-      font-size: 2rem;
+      font-size: 2.5rem;
       cursor: pointer;
       //&:before {
       //  vertical-align: middle;
@@ -114,11 +115,12 @@ h6.classify-title {
 
   ul {
     margin-left: 8%;
+    width: 92%;
   }
 
   button {
     display: block;
-    margin: 0 auto;
+    margin: 2% auto;
     border: none;
     background: none;
     color: $search-color2;
@@ -150,14 +152,13 @@ h6.classify-title {
 
 .search-article {
   @extend %section;
-
 }
 
 .search-other {
   a {
     display: block;
     width: 100%;
-    padding: 1% 2%;
+    padding: 2% 2%;
     border-style: solid;
     border-width: 0 0 1px 0;
     border-color: $search-line-color;

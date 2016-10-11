@@ -1,5 +1,6 @@
 @charset "utf-8";
-@import "fontello.css";
+@import "iconfont.css";
+
 
 
 $debug: 1px solid;
@@ -141,21 +142,21 @@ body {
 }
 
 .nav-btn {
-  position: fixed;
-  z-index: 2;
-  top: 5%;
+
+  //z-index: 2;
+  //top: 5%;
   width: 100%;
-  padding-top: 10%;
+  //padding-top: 10%;
   overflow: hidden;
   @include transition(filter .3s linear);
 
 
   @mixin navButton($position: left, $radiusDir: right) {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 5%;
     #{$position}: 0;
     width: 16%;
-    height: 100%;
+    padding-top: 10%;
     border-top-#{$radiusDir}-radius: toRem(50);
     border-bottom-#{$radiusDir}-radius: toRem(50);
     color: white;
@@ -178,6 +179,10 @@ body {
   .nav-menu {
     @include navButton(left, right);
 
+    &.nav-hide {
+      left: -16%;
+      opacity: 0;
+    }
     span {
       @extend %navSpan;
       left: 50%;
@@ -187,20 +192,18 @@ body {
   .nav-search {
     @include navButton(right, left);
 
+    &.nav-hide {
+      right: -16%;
+      opacity: 0;
+    }
+
     span {
       @extend %navSpan;
       right: 50%;
       margin-right: -0.5em;
     }
   }
-  .nav-menu.nav-hide {
-    left: -16%;
-    opacity: 0;
-  }
-  .nav-search.nav-hide {
-    right: -16%;
-    opacity: 0;
-  }
+
 
 }
 

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(fontello.css);
+@import url(iconfont.css);
 html, body, div, span, h1, h2, h3, h4, h5, h6, p,
 blockquote, a, acronym, address, big, cite, code,
 img, ul, li, tbody, tfoot, thead, tr, th, td, article,
@@ -71,11 +71,7 @@ body {
   overflow: hidden; }
 
 .nav-btn {
-  position: fixed;
-  z-index: 2;
-  top: 5%;
   width: 100%;
-  padding-top: 10%;
   overflow: hidden;
   -webkit-transition: filter 0.3s linear;
   -moz-transition: filter 0.3s linear;
@@ -88,11 +84,11 @@ body {
     margin-top: -0.5em;
     line-height: 1em; }
   .nav-btn .nav-menu {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 5%;
     left: 0;
     width: 16%;
-    height: 100%;
+    padding-top: 10%;
     border-top-right-radius: 5rem;
     border-bottom-right-radius: 5rem;
     color: white;
@@ -105,15 +101,18 @@ body {
     -ms-transition: left 1.2s ease, opacity 1s linear 0.2s;
     -o-transition: left 1.2s ease, opacity 1s linear 0.2s;
     transition: left 1.2s ease, opacity 1s linear 0.2s; }
+    .nav-btn .nav-menu.nav-hide {
+      left: -16%;
+      opacity: 0; }
     .nav-btn .nav-menu span {
       left: 50%;
       margin-left: -0.5em; }
   .nav-btn .nav-search {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 5%;
     right: 0;
     width: 16%;
-    height: 100%;
+    padding-top: 10%;
     border-top-left-radius: 5rem;
     border-bottom-left-radius: 5rem;
     color: white;
@@ -126,15 +125,12 @@ body {
     -ms-transition: right 1.2s ease, opacity 1s linear 0.2s;
     -o-transition: right 1.2s ease, opacity 1s linear 0.2s;
     transition: right 1.2s ease, opacity 1s linear 0.2s; }
+    .nav-btn .nav-search.nav-hide {
+      right: -16%;
+      opacity: 0; }
     .nav-btn .nav-search span {
       right: 50%;
       margin-right: -0.5em; }
-  .nav-btn .nav-menu.nav-hide {
-    left: -16%;
-    opacity: 0; }
-  .nav-btn .nav-search.nav-hide {
-    right: -16%;
-    opacity: 0; }
 
 .nav-bg {
   position: fixed;
@@ -249,6 +245,7 @@ h6.classify-title {
     height: 100%;
     width: 100%; }
     .search-bar form label {
+      position: relative;
       float: left;
       width: 88%;
       height: 100%; }
@@ -256,7 +253,7 @@ h6.classify-title {
         height: 100%;
         width: 97%;
         margin-left: 3%;
-        padding-left: 10%;
+        padding-left: 8%;
         padding-right: 8%;
         border-radius: 50px;
         border-style: solid;
@@ -266,7 +263,7 @@ h6.classify-title {
       .search-bar form label span {
         position: absolute;
         top: 50%;
-        font-size: 2rem;
+        font-size: 1.6rem;
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
@@ -276,7 +273,7 @@ h6.classify-title {
         left: 5%;
         color: rgba(10, 10, 10, 0.3); }
       .search-bar form label span:last-child {
-        right: 12%;
+        right: 2%;
         color: rgba(10, 10, 10, 0.3);
         cursor: pointer; }
   .search-bar button {
@@ -295,16 +292,17 @@ h6.classify-title {
       -ms-transform: translate(50%, -50%);
       -o-transform: translate(50%, -50%);
       transform: translate(50%, -50%);
-      font-size: 2rem;
+      font-size: 2.5rem;
       cursor: pointer; }
 
 .search-classify, .search-article {
   color: rgba(10, 10, 10, 0.3); }
   .search-classify ul, .search-article ul {
-    margin-left: 8%; }
+    margin-left: 8%;
+    width: 92%; }
   .search-classify button, .search-article button {
     display: block;
-    margin: 0 auto;
+    margin: 2% auto;
     border: none;
     background: none;
     color: rgba(0, 0, 0, 0.8);
@@ -325,7 +323,7 @@ h6.classify-title {
 .search-other a {
   display: block;
   width: 100%;
-  padding: 1% 2%;
+  padding: 2% 2%;
   border-style: solid;
   border-width: 0 0 1px 0;
   border-color: rgba(0, 0, 0, 0.2);
