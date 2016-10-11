@@ -114,11 +114,12 @@ h6.classify-title {
 
   ul {
     margin-left: 8%;
+    width: 92%;
   }
 
   button {
     display: block;
-    margin: 0 auto;
+    margin: 2% auto;
     border: none;
     background: none;
     color: $search-color2;
@@ -150,14 +151,13 @@ h6.classify-title {
 
 .search-article {
   @extend %section;
-
 }
 
 .search-other {
   a {
     display: block;
     width: 100%;
-    padding: 1% 2%;
+    padding: 2% 2%;
     border-style: solid;
     border-width: 0 0 1px 0;
     border-color: $search-line-color;

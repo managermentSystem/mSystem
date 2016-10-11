@@ -301,10 +301,11 @@ h6.classify-title {
 .search-classify, .search-article {
   color: rgba(10, 10, 10, 0.3); }
   .search-classify ul, .search-article ul {
-    margin-left: 8%; }
+    margin-left: 8%;
+    width: 92%; }
   .search-classify button, .search-article button {
     display: block;
-    margin: 0 auto;
+    margin: 2% auto;
     border: none;
     background: none;
     color: rgba(0, 0, 0, 0.8);
@@ -325,7 +326,7 @@ h6.classify-title {
 .search-other a {
   display: block;
   width: 100%;
-  padding: 1% 2%;
+  padding: 2% 2%;
   border-style: solid;
   border-width: 0 0 1px 0;
   border-color: rgba(0, 0, 0, 0.2);

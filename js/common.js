@@ -1,3 +1,9 @@
+//
+$(function() {
+    $('.article-title').dotdotdot();
+});
+
+
 document.addEventListener("touchstart", function (e) {
     startX = e.touches[0].screenX;
     startY = e.touches[0].screenY;
