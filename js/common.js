@@ -1,8 +1,7 @@
-//
+//运行dotdotdot方法
 $(function() {
     $('.article-title').dotdotdot();
 });
-
 
 document.addEventListener("touchstart", function (e) {
     startX = e.touches[0].screenX;
@@ -11,6 +10,7 @@ document.addEventListener("touchstart", function (e) {
 document.addEventListener("touchend", function (e) {
     var endX = e.changedTouches[0].screenX;
     var endY = e.changedTouches[0].screenY;
+    if ($(".nav-side-box").hasClass("nav-show")) return;
 
     var direction = getDirection(startX, startY, endX, endY);
     switch (direction) {
@@ -57,16 +57,31 @@ function getAngle(x, y) {
 
 
 //绑定菜单点击事件
-$("#navMenu").on("click", showSideBox);
-
+$("#navMenu").click(function() {
+    showSideBox();
+    scroll().disableScroll();
+    //添加毛玻璃效果
+    $("body").children().not("nav, script").addClass("blur");
+    $("#navMenu,#navSearch").addClass("blur");
+});
 $("#menuBack").click(function() {
     hideSideBox();
-})
-$(".nav-bg").on("click", hideSideBox);
-//搜索点击事件
+    scroll().enableScroll();
+    //去除毛玻璃效果
+    $("body").children().not("nav, script").removeClass("blur");
+    $("#navMenu,#navSearch").removeClass("blur");
+});
+$(".nav-bg").click(function() {
+    hideSideBox();
+    scroll().enableScroll();
+    //去除毛玻璃效果
+    $("body").children().not("nav, script").removeClass("blur");
+    $("#navMenu,#navSearch").removeClass("blur");
+});
+//导航搜索点击事件
 $("#navSearch").click(function() {
     location.href = "search.html";
-})
+});
 
 // 隐藏菜单栏
 function hideMenuNav() {
@@ -88,31 +103,18 @@ function showMenuNav() {
 }
 //显示侧边栏
 function showSideBox() {
-    // clearInterval(a);
     if (!$(".nav-side-box").hasClass("nav-show")) {
         $(".nav-side-box").addClass("nav-show")
     }
     $(".nav-bg").css("z-index", "2");
-    //添加毛玻璃效果
-    $("body").children().not("nav, script").addClass("blur");
-    $(".nav-btn").addClass("blur");
 
-    scroll().disableScroll();
-    // scroll1 = null;
 }
 //隐藏侧边栏
 function hideSideBox() {
     if ($(".nav-side-box").hasClass("nav-show")) {
         $(".nav-side-box").removeClass("nav-show")
     }
-
-    $("body").children().not("nav, script").removeClass("blur");
-    $(".nav-btn").removeClass("blur");
-
     $(".nav-bg").css("z-index", "-1");
-
-
-    scroll().enableScroll();
 
 }
 
@@ -143,4 +145,8 @@ $("#search-cancel").click(function() {
     $("#search-input").val("");
     srHide($(this));
 });
-
+//清空搜索记录
+$("#clearRecord").click(function() {
+    $(".search-tag .history").hide();
+    $(this).hide();
+})
