@@ -1,49 +1,60 @@
 $("#edit").on("click", showBox);
 $("#ok").on("click", hideBox);
 $(".collect-ul>li>a").on("click",showArt);
+// $("#js").on("click",showartEdit);
 //显示编辑层
 function showBox() {
     $("#edit").addClass("sr-hide");
+    $("#ok").removeClass("sr-hide");
+    $(".icon-add1").removeClass("sr-hide");
     $(".collect-scan").find("span:first-child").addClass("sr-hide");
-    $(".collect-scan").find("span:last-child").removeClass("sr-hide");
+    $(".collect-article").addClass("sr-hide");
+    $(".collect-scan").find("span:nth-child(2)").removeClass("sr-hide");
     hideMenuNav();
 }
 //隐藏编辑层
 function hideBox() {
     $("#ok").addClass("sr-hide");
     $("#edit").removeClass("sr-hide");
-    $(".icon-plus-circle-1,.icon-ok-circled2").addClass("sr-hide");
+    $(".icon-add1,.icon-ok1").addClass("sr-hide");
     $(".collect-scan").find("span:first-child").removeClass("sr-hide");
-    $(".collect-scan").find("span:last-child").addClass("sr-hide");
+    $(".collect-scan").find("span:nth-child(2)").addClass("sr-hide");
     showMenuNav();
 }
-//删除分类
-function showSort() {
-    // clearInterval(a);
-    if (!$(".nav-side-box").hasClass("nav-show")) {
-        $(".nav-side-box").addClass("nav-show")
-    }
-    $(".nav-bg").css("z-index", "2");
-    //添加毛玻璃效果
-    $("body").children().not("nav, script").addClass("blur");
-    scroll().disableScroll();
-    // scroll1 = null;
-}
+
 
 //显示分类下的文章
 function showArt() {
-    if(!$(this).children(".icon-angle-right").hasClass("sr-hide"))
+    if(!$(this).children(".icon-right").hasClass("sr-hide"))
     {
-        $(".icon-angle-right").removeClass("sr-hide");
-        $(".icon-angle-down").addClass("sr-hide");
-        $(this).children(".icon-angle-right").addClass("sr-hide");
-        $(this).children(".icon-angle-down").removeClass("sr-hide");
+        $(".icon-right").removeClass("sr-hide");
+        $(".icon-down2").addClass("sr-hide");
+        $(this).children(".icon-right").addClass("sr-hide");
+        $(this).children(".icon-down2").removeClass("sr-hide");
         $(".collect-article").addClass("sr-hide");
         $(this).next().next().removeClass("sr-hide");
     }
+
     else {
-        $(this).children(".icon-angle-right").removeClass("sr-hide");
-        $(this).children(".icon-angle-down").addClass("sr-hide");
+        $(this).children(".icon-right").removeClass("sr-hide");
+        $(this).children(".icon-down2").addClass("sr-hide");
         $(this).next().next().addClass("sr-hide");
     }
 }
+// function showA() {
+// else if(!$(this).children(".icon-right").hasClass("sr-hide")&&$("#edit").hasClass("sr-hide"))
+//     {
+//         $(".collect-scan").find("span:nth-child(2)").addClass("sr-hide");
+//         $(".collect-scan").find("span:first-child").addClass("sr-hide");
+
+//         $(".icon-circle1").removeClass("sr-hide");
+//         $(".article-main").css("left","25%");
+//         $(".article-img").css("left","5%");
+//         $(".icon-right").removeClass("sr-hide");
+//         $(".icon-down2").addClass("sr-hide");
+//         $(this).children(".icon-right").addClass("sr-hide");
+//         $(this).children(".icon-down2").removeClass("sr-hide");
+//         $(".collect-article").addClass("sr-hide");
+//         $(this).next().next().removeClass("sr-hide");
+//     }
+// }
