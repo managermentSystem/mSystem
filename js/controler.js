@@ -1,6 +1,6 @@
 $("#edit").on("click", showBox);
 $("#ok").on("click", hideBox);
-$(".collect-ul>li>a").on("click",showArt)
+$(".collect-ul>li>a").on("click",showArt);
 //显示编辑层
 function showBox() {
     $("#edit").addClass("sr-hide");
@@ -31,17 +31,19 @@ function showSort() {
 }
 
 //显示分类下的文章
-function showArt(element) {
-	if(!$(".icon-angle-right").hasClass("sr-hide"))
-	{
-		$(".icon-angle-right").addClass("sr-hide");
-		$(".icon-angle-down").removeClass("sr-hide");
-		$(".collect-article").removeClass("sr-hide");
-	}
-	else {
-		$(".icon-angle-right").removeClass("sr-hide");
-		$(".icon-angle-down").addClass("sr-hide");
-		$(".collect-article").addClass("sr-hide");
-	}
-	
+function showArt() {
+    if(!$(this).children(".icon-angle-right").hasClass("sr-hide"))
+    {
+        $(".icon-angle-right").removeClass("sr-hide");
+        $(".icon-angle-down").addClass("sr-hide");
+        $(this).children(".icon-angle-right").addClass("sr-hide");
+        $(this).children(".icon-angle-down").removeClass("sr-hide");
+        $(".collect-article").addClass("sr-hide");
+        $(this).next().next().removeClass("sr-hide");
+    }
+    else {
+        $(this).children(".icon-angle-right").removeClass("sr-hide");
+        $(this).children(".icon-angle-down").addClass("sr-hide");
+        $(this).next().next().addClass("sr-hide");
+    }
 }
