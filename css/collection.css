@@ -1,23 +1,22 @@
 .collected {
 	width: 100%;
+	display: flex;
 	list-style: none;
 }
 .collected > li {
 	display: inline-block;
-	padding-bottom: 5%;
-	padding-top: 5%;
-	padding-left: 0;
-	padding-right: 0;
-	margin: 0;
+	margin: 5% 0;
+	height: 3.5rem;
 	width: 33.33%;
-	font-size:2.5rem;
+	font-size: 2.5rem;
 }
 .collected > li:first-child {float: left;}
-.collected > li:nth-child(2) {text-align: center;}
-.collected > li:nth-child(3) {text-align: right;float: right;}
+.collected > li:nth-child(2) {text-align: center;float: left;}
+.collected > li:nth-child(3) {text-align: right;}
 .collected >li .icon-plus-circle-1,.icon-edit-alt,.icon-ok-circled2 {font-weight: lighter;}
 .icon-plus-circle-1 {padding-left: 10%;}
 .icon-ok-circled2 {padding-right: 10%;}
+
 .collect-ul {list-style: none;}
 .collect-ul > li {
 	font-size: 1.6rem;
@@ -26,8 +25,8 @@
 }
 .collect-ul >li:last-child {border-bottom: 1px solid;border-color: #ccc;}
 .collect-ul >li >a {
-	display: inline-block;
 	float: left;
+	display: inline-block;
 	padding-top: 3.5%;
 	padding-bottom: 3.5%;
 	width: 92%;
@@ -141,3 +140,4 @@ span.icon-minus-circle-1 {color: red;font-weight: lighter;}
 	width: 20%;
 }
 .article-inner {padding-top: 5%;}
+.article-content:first-child {border-top: 1px solid;border-color: #ccc;}

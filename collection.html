@@ -13,9 +13,9 @@
 </head>
 <body>
   <ul class="collected">
-    <li><span class="icon-plus-circle-1 "></span></li>
-    <li><span class="icon-edit-alt"></span></li>
-    <li><span class="icon-ok-circled2"></span></li>
+    <li><span class="icon-plus-circle-1 sr-hide"></span></li>
+    <li ><span id ="edit" class="icon-edit-alt "></span></li>
+    <li><span id="ok" class="icon-ok-circled2 sr-hide"></span></li>
   </ul>
   <div class="collect-rank">
       <ul class="collect-ul">
@@ -25,7 +25,7 @@
             <span class="">9</span>
             <span class="icon-minus-circle-1 sr-hide"></span>
           </div>
-          <div class="collect-article ">
+          <div class="collect-article sr-hide">
               <ul>
                 <li class="article-content">
                   <p class="article-inner"></p>
@@ -70,7 +70,7 @@
         </li>
         <li>
           <a href="###"><span class="icon-angle-right"></span><span class="icon-angle-down sr-hide"></span>分类II</a>
-         <div class="collect-scan">
+          <div class="collect-scan">
             <span class="">11</span>
             <span class="icon-minus-circle-1 sr-hide"></span>
           </div>
@@ -78,9 +78,9 @@
         </li>
         <li>
           <a href="###"><span class="icon-angle-right"></span><span class="icon-angle-down sr-hide"></span>分类III</a>
-          <div class="collect-scan">
-            <span class="sr-hide">9</span>
-            <span class="icon-minus-circle-1 "></span>
+            <div class="collect-scan">
+            <span>9</span>
+            <span class="icon-minus-circle-1 sr-hide"></span>
           </div>
           <ul class="collect-article"></ul></div>
         </li>
@@ -88,7 +88,7 @@
     </div>
   </div>
   <form action="" method="post">
-    <div class="alert-del ">
+    <div class="alert-del sr-hide">
       <ul>
         <li>
           <span class="icon-dot-circled" id="del-1"></span>
@@ -123,9 +123,8 @@
   </form>
   <script src="js/jquery.js"></script>
   <script src="js/jquery.dotdotdot.min.js"></script>
-  <script>
-      $(function() {
-        var i=$('.article-title').dotdotdot(); });
-  </script>
+  <script src="js/controler.js"></script>
+  <script src="js/disablescroll.js"></script>
+<script src="js/common.js"></script>
 </body>
 </html>
